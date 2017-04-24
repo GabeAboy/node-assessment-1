@@ -23,6 +23,7 @@ module.exports = {
   getUsersByFavorite:(param)=>{
 
     var users = util.find('favorites',param)
+    console.log(users);
     if(users)return users
     else return null
 
@@ -46,6 +47,12 @@ module.exports = {
   },
   updateUser:(id,obj)=>{
 
+    util.update('id',id,obj)
+    var userFound = util.findOne('id',id)
+    return userFound
+  },
+  removeUser:(id)=>{
+    return util.remove('id',id)
   }
 
 

@@ -22,10 +22,15 @@ module.exports = {
   },
   getUsersByFavorite:(param)=>{
 
-    var users = util.find('favorites',param)
-    console.log(users);
-    if(users)return users
-    else return null
+    var users = util.find()
+    var userFiltered = []
+    
+    for (var i = 0; i < users.length; i++) {
+      if(users[i].favorites.includes(param)){
+        userFiltered.push(users[i])
+      }
+    }
+    return userFiltered
 
   },
   getUsersByAgeLimit:(age)=>{

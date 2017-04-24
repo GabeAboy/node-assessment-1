@@ -8,7 +8,11 @@ app.use(bodyParser.json())
 port = 3000
 
 
-
+app.get('/api/users',(req,res,next)=>{
+  var users = userCtrl.readAll()
+  res.status(200).send(users)
+  
+})
 app.get('/api/users/:userId',function(req,res) {
   var id = Number(req.params.userId)
 
